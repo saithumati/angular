@@ -1,0 +1,66 @@
+<h1 align="center">
+  {{company}}
+</h1>
+
+<table class="table table-dark">
+  <tr>
+    <th>
+      id
+    </th>
+    <th>
+      Name
+    </th>
+    <th>
+      salary
+    </th>
+   
+  </tr>
+  <tr>
+      <th>
+        {{eno}}
+      </th>
+      <th>
+        {{ename}}
+      </th>
+      <th>
+       {{salary}}
+      </th>
+      
+    </tr>
+</table>
+<input type="checkbox" (change)="ChangeValue($event)"> show Hobbies
+<table class="table table-dark">
+    <tr>
+      <th>
+        id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        salary
+      </th>
+      <th *ngIf="value">Hobbies</th>
+    </tr>
+    <tr *ngFor="let emp of empCompany">
+        <th>
+          {{emp.eno}}
+        </th>
+        <th>
+          {{emp.ename}}
+        </th>
+        <th>
+         {{emp.salary}}
+        </th>
+        <th *ngIf="value">
+          
+           <ul *ngFor="let hobby of emp.hobbies" >
+              {{hobby}}
+           </ul>
+          
+        </th>
+      </tr>
+  </table>
+  <input type="text" [(ngModel)]="result">
+  {{result}}
+  <button (click)="ShowMe()">clickme</button>
